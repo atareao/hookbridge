@@ -1,0 +1,30 @@
+url: https://board.sample.es
+port: 6969
+log_level: debug
+users:
+  - name: user1
+    password: password1
+    active: true
+destinations:
+  - name: matrix_watchtower
+    service:
+      service_type: matrix
+      config:
+        url: matrix.tuservidor.es
+        token: xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        room: "!xxxxxxxxxxxxxxxxxxx"
+  - name: zincobserve_docker
+    service:
+      service_type: zinc_observe
+      config:
+        url: https://zincobserve.tuservidor.es
+        token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        index: docker
+  - name: telegram_atareao_publicaciones
+    service:
+      service_type: telegram
+      config:
+        url: https://api.telegram.org
+        token:
+        chat_id:
+        topic_id:
