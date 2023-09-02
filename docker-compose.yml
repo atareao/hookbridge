@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  hookbridge:
+    image: atareao/hookbridge:latest
+    container_name: hookbridge
+    init: true
+    restart: unless-stopped
+    volumes:
+      - ./config.yml:/app/config.yml
