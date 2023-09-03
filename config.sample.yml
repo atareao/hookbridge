@@ -1,10 +1,5 @@
-url: https://board.sample.es
 port: 6969
 log_level: debug
-users:
-  - name: user1
-    password: password1
-    active: true
 destinations:
   - name: matrix_watchtower
     service:

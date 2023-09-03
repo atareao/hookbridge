@@ -24,6 +24,7 @@ pub struct Service {
 
 impl Service{
     pub async fn post(&self, message: &str) -> Result<String, String>{
+        info!("post");
         match &self.service_type{
             ServiceType::Matrix => {
                 self.post_with_matrix(message).await
@@ -37,6 +38,7 @@ impl Service{
         }
     }
     async fn post_with_zinc_observe(&self, message: &str) -> Result<String, String>{
+        info!("post_with_zinc_observe");
         debug!("Post with zinc: {}", message);
         let base_url = self.config.get("url").unwrap();
         let index = self.config.get("index").unwrap();
@@ -60,6 +62,7 @@ impl Service{
     }
 
     async fn post_with_matrix(&self, message: &str) -> Result<String, String>{
+        info!("post_with_matrix");
         debug!("Post with matrix: {}", message);
         let token = self.config.get("token").unwrap();
         let room = encode(self.config.get("room").unwrap());
@@ -85,6 +88,7 @@ impl Service{
     }
 
     async fn post_with_telegram(&self, message: &str) -> Result<String, String>{
+        info!("post_with_telegram");
         debug!("Post with telegram: {}", message);
         let token = self.config.get("token").unwrap();
         let chat_id = self.config.get("chat_id").unwrap();
