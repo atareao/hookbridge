@@ -1,7 +1,6 @@
 mod model;
 mod http;
 
-use tokio;
 use std::{process, str::FromStr};
 use tracing_subscriber::{
     EnvFilter,
@@ -27,16 +26,14 @@ async fn read_configuration() -> Configuration{
         .await {
             Ok(value) => value,
             Err(e) => {
-                println!("Error with config file `config.yml`: {}",
-                    e.to_string());
+                println!("Error with config file `config.yml`: {}", e);
                 process::exit(0);
             }
         };
     match Configuration::new(&content){
         Ok(configuration) => configuration,
         Err(e) => {
-            println!("Error with config file `config.yml`: {}",
-                e.to_string());
+            println!("Error with config file `config.yml`: {}", e);
             process::exit(0);
         }
     }

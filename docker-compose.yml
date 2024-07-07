@@ -1,10 +1,12 @@
-version: "3.7"
-
 services:
   hookbridge:
     image: atareao/hookbridge:latest
     container_name: hookbridge
     init: true
     restart: unless-stopped
+    environment:
+      TZ: Europe/Madrid
     volumes:
       - ./config.yml:/app/config.yml
+    ports:
+      - 6969:6969
